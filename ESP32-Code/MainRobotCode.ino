@@ -193,13 +193,18 @@ void setup() {
 }
 
 void loop() {
+  // Read CRSF packets from Serial1 (CRSF Receiver)
   while (Serial1.available()) {
+    // Read a byte from Serial1
     uint8_t byte = Serial1.read();
 
+    // Detect start of CRSF packets
     if (crsfPos == 0 && byte != 0xC8) continue;
 
+    // Store byte in buffer
     crsfBuffer[crsfPos++] = byte;
 
+    // Check if we have received the full packet
     if (crsfPos > 2 && crsfPos >= crsfBuffer[1] + 2) {
       parseCRSFPacket(crsfBuffer, crsfPos);
       crsfPos = 0;
