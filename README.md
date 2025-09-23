@@ -12,8 +12,6 @@ By offering open-source access to the AgriCruiser, we promote innovation through
 ### Transmission System
 ### Caster Wheels 
 
-## Circuit Diagram for AgriCrusier:
-![image](https://github.com/user-attachments/assets/66a488dc-2805-404c-b62c-07e03828eeb1)
 ## Circuit for AgriCrusier:
 ### Circuit Diagram for ArgiCrusier
 The following diagram shows the wiring between the **ESP32**, **RoboClaw motor controller**, **RadioMaster receiver**, **relay module**, and the **power distribution system**.
@@ -42,4 +40,13 @@ The following diagram shows the wiring between the **ESP32**, **RoboClaw motor c
 ### Motor Control
 - **RoboClaw 2x60A** controls two MP26 MobilePower gearmotors.  
 - Encoders are wired back to RoboClaw for closed-loop speed control.  
-- RoboClaw communicates with ESP32 over **UART2**. 
+- RoboClaw communicates with ESP32 over **UART2**.
+
+### Solenoid Control
+- Relay module (4-channel) switches 24 V supply to four solenoid valves.  
+- Relays are driven by **GPIO 5, 18, 19, 21** on the ESP32.  
+- Each solenoid is powered directly from the 24 V battery rail through the relay. 
+
+### Radio Receiver
+- **RadioMaster Receiver** provides CRSF protocol data over UART1 (pins 22/23).  
+- Channels are parsed by ESP32 firmware and mapped to throttle, steering, and solenoid switches.  
