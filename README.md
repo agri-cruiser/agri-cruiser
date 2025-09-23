@@ -7,6 +7,7 @@ AgriCruiser: An Open Source Agriculture Robot for Over-the-Row Navigation
 - [Mechanical Design](#mechanical-design)
 - [Circuit Design](#circuit-design)
 - [Software Design](#software-design)
+  - [Software Setup](#software-setup)
 
 
 ## Overview of the AgriCruiser
