@@ -13,7 +13,7 @@ The following diagram shows the wiring between the **ESP32**, **RoboClaw motor c
 
 | ESP32 Pin | Connected To         | Purpose                                      |
 |-----------|----------------------|----------------------------------------------|
-| VIN       | 5V from Receiver     | ESP32 power supply                           |
+| VIN       | 5V from Receiver     | To power/complete circuit from ESP32 to Reciever                           |
 | GND       | Common Ground        | Shared ground reference                      |
 | RX1 (GPIO 22) | RadioMaster TX   | Receive CRSF data from RC receiver           |
 | TX1 (GPIO 23) | RadioMaster RX   | Send data to RC receiver (if needed)         |
