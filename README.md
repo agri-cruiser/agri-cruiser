@@ -9,6 +9,11 @@ By offering open-source access to the AgriCruiser, we promote innovation through
 
 ## Mechanical Design
 ### Chassis 
+Begin by constructing the chassis with a T-slot framing system, which makes it possible to assemble the structure quickly and adjust it later without welding. Use bolts and brackets instead of permanent welds so that each joint can be loosened, repositioned within millimeters, and tightened again using a simple hex key. This reconfigurable setup is essential for adapting the chassis to different crop sizes and field requirements.
+
+Build the frame with aluminum extrusions to keep it both strong and lightweight, which is ideal for agricultural applications. Since only standard cutting and assembly tools are needed, the design remains practical and does not depend on specialized equipment. Make use of widely available components such as angle brackets, gussets, and hinges to lower costs and ensure that the platform can be built and modified anywhere.
+
+Finally, design the chassis to allow track width adjustment between 1.42 m and 1.57 m (measured at the driven wheel centers). This feature lets the robot adapt to various crop layouts in the field without the need for complete disassembly, ensuring the system remains versatile and efficient.
 ### Transmission System
 ### Caster Wheels 
 
