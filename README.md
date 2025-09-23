@@ -28,6 +28,9 @@ Build the frame using aluminum extrusions to achieve both strength and lightweig
 Finally, design the chassis to allow track width adjustment between 1.42 m and 1.57 m (measured at the driven wheel centers). This feature enables the robot to adapt to various crop layouts in the field without requiring complete disassembly, ensuring the system remains versatile and efficient.
  ![Image Alt](https://github.com/StructuresComp/agri-cruiser/blob/97178a4c4580bc165dab21d5563dfaf69bd2e226/images/CAD_Chassis.png)
 ### Transmission System
+In agricultural environments, the transmission system plays a key role in helping the robot handle uneven terrain. Once in the field, it needs to adapt to surfaces like concrete, grass, gravel, or soil. The AgriCruiser uses a two-wheel front-drive system powered by low-RPM, high-torque PMDC brush motors. Specifically, it’s equipped with ElectroCraft’s MP26 motor, paired with a 32:1 gear ratio. This setup delivers continuous torque of up to 31.42 Nm for 15 minutes.
+
+We chose a two-wheel drive instead of four-wheel drive to keep costs and mechanical complexity down, while still providing enough torque for typical field conditions. Motor selection was guided by torque requirement calculations, which were based on a worst-case scenario: higher operating speeds, a rolling resistance coefficient of up to 0.2, and localized inclines of 10 degrees. For context, soft soil usually has a rolling resistance coefficient between 0.04 and 0.08, so our assumptions were intentionally conservative to ensure the robot performs reliably across a variety of soil types.
 ### Caster Wheel 
 
 ## Circuit Design
