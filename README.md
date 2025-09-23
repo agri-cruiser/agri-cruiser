@@ -20,17 +20,25 @@ AgriCruiser: An Open Source Agriculture Robot for Over-the-Row Navigation
 By offering open-source access to the AgriCruiser, we promote innovation through community collaboration, allowing other researchers, developers, and farmers to adapt and build upon the robot for a variety of use cases. In the MechanicalDesign folder of this repository, we've linked the SolidWorks models that we shared through the [GrabCAD Community](https://github.com/StructuresComp/agri-cruiser/tree/cd803cd31bd14a8776e03051d3f2b84bb0032ff6/MechanicalDesign). Most of the parts we used are off-the-shelf components since we wanted to keep the build as simple as possible. A few parts required some basic machining, which we handled using tools such as a water-jet cutter, bandsaw, or drill press. For parts that require that level of precision, there are numerous companies offering affordable custom fabrication services, including water-jet cutting, laser cutting, and CNC machining. Since all our parts were already designed in SolidWorks, it was simply a matter of exporting files in standard formats, such as STEP or DXF. In our case, all the water-jet parts were fabricated by an outside company, and some were manufactured in-house at UCLA. 
 
 ## Mechanical Design
+The Bill of Materials (BOM), provided in the BOM folders, lists the details of each component. For off-the-shelf parts, we’ve included either a McMaster-Carr or Amazon link. While these parts can also be sourced from other suppliers, the provided links are useful because they contain the specifications for each component. If you are in the United States, it is often more convenient to order directly through the linked stores.
+
+For water-jet–cut parts, we used SendCutSend, a company based in Reno, Nevada. They accept STL files, which can be exported directly from the provided SolidWorks files. If you prefer to use a different manufacturer, simply provide them with the CAD files of the components.
+
+For manually machined parts, most are basic stock materials such as square tubing or steel rods. We also provided links to buy these items. In most cases, these just need to be cut to size and drilled as specified. All drilling and tapping details are included in the SolidWorks files for reference.
+
 ### Chassis 
 Begin by constructing the chassis using a T-slot framing system, which enables quick assembly and allows for later adjustments without welding. Use bolts and brackets instead of permanent welds so that each joint can be loosened, repositioned within millimeters, and tightened again using a simple hex key. This reconfigurable setup is essential for adapting the chassis to different crop sizes and field requirements.
 
 Build the frame using aluminum extrusions to achieve both strength and lightweight, making it ideal for agricultural applications. Since only standard cutting and assembly tools are needed, the design remains practical and does not depend on specialized equipment. Utilize widely available components, such as angle brackets, gussets, and hinges, to reduce costs and ensure the platform can be built and modified anywhere.
 
 Finally, design the chassis to allow track width adjustment between 1.42 m and 1.57 m (measured at the driven wheel centers). This feature enables the robot to adapt to various crop layouts in the field without requiring complete disassembly, ensuring the system remains versatile and efficient.
+
  ![Image Alt](https://github.com/StructuresComp/agri-cruiser/blob/97178a4c4580bc165dab21d5563dfaf69bd2e226/images/CAD_Chassis.png)
 ### Transmission System
 In agricultural environments, the transmission system plays a key role in helping the robot handle uneven terrain. Once in the field, it needs to adapt to surfaces like concrete, grass, gravel, or soil. The AgriCruiser uses a two-wheel front-drive system powered by low-RPM, high-torque PMDC brush motors. Specifically, it’s equipped with ElectroCraft’s MP26 motor, paired with a 32:1 gear ratio. This setup delivers continuous torque of up to 31.42 Nm for 15 minutes.
 
 We chose a two-wheel drive instead of four-wheel drive to keep costs and mechanical complexity down, while still providing enough torque for typical field conditions. Motor selection was guided by torque requirement calculations, which were based on a worst-case scenario: higher operating speeds, a rolling resistance coefficient of up to 0.2, and localized inclines of 10 degrees. For context, soft soil usually has a rolling resistance coefficient between 0.04 and 0.08, so our assumptions were intentionally conservative to ensure the robot performs reliably across a variety of soil types.
+
 **SolidWorks CAD**
  ![Image Alt](https://github.com/StructuresComp/agri-cruiser/blob/6ce7dcf9fd918c649a655e24bfd37614669e59a6/images/CAD_Transmission_System.png)
 
