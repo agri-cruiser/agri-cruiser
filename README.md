@@ -26,3 +26,8 @@ The following diagram shows the wiring between the **ESP32**, **RoboClaw motor c
 | GPIO 19   | Relay Module IN3     | Control Solenoid 3                           |
 | GPIO 21   | Relay Module IN4     | Control Solenoid 4                           |
 | GPIO 2    | Status LED (optional)| Debugging / system heartbeat indicator       |
+
+### 🔋 Power System
+- **Main Power:** 24 V LiFePO₄ battery pack.  
+- **Power Distribution Board:** Splits 24 V supply to RoboClaw, motors, and relay module.  
+- **LM317 + DC-DC Converter:** Regulates 24 V down to 5 V to be used for the ESP32 and receiver. 
