@@ -3,10 +3,11 @@
 #include "RoboClaw.h"
 #include <HardwareSerial.h>
 
-#define RELAY_PIN1  5  // Change this to the GPIO you're using
-#define RELAY_PIN2  18  // Change this to the GPIO you're using
-#define RELAY_PIN3  19  // Change this to the GPIO you're using
-#define RELAY_PIN4  21  // Change this to the GPIO you're using
+// Relay pins for solenoid control
+#define RELAY_PIN1  5
+#define RELAY_PIN2  18
+#define RELAY_PIN3  19
+#define RELAY_PIN4  21
 
 #define ROBOCLAW_ADDR 0x80
 
