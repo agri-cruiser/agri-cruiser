@@ -15,8 +15,8 @@ The following diagram shows the wiring between the **ESP32**, **RoboClaw motor c
 |-----------|----------------------|----------------------------------------------|
 | VIN       | 5V from Receiver     | To power/complete circuit from ESP32 to Reciever                           |
 | GND       | Common Ground        | Shared ground reference                      |
-| RX1 (GPIO 22) | RadioMaster TX   | Receive CRSF data from RC receiver           |
-| TX1 (GPIO 23) | RadioMaster RX   | Send data to RC receiver (if needed)         |
+| RX1 (GPIO 22) | RadioMaster TX   | Receive CRSF data from RadioMaster receiver           |
+| TX1 (GPIO 23) | RadioMaster RX   | Send data to RadioMaster receiver (if needed)         |
 | RX2 (GPIO 16) | RoboClaw TX      | Receive data (encoders, telemetry) from RoboClaw |
 | TX2 (GPIO 17) | RoboClaw RX      | Send motor commands to RoboClaw              |
 | GPIO 5    | Relay Module IN1     | Control Solenoid 1                           |
