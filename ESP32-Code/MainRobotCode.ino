@@ -144,11 +144,11 @@ void onDataRecv(const uint8_t *mac, const uint8_t *incomingDataRaw, int len) {
 
 void setup() {
   Serial.begin(115200);
+
+  // Initialize Serial1 for CRSF receiver (pins 22 = RX, 23 = TX)
   Serial1.begin(420000, SERIAL_8N1, 22, 23); // CRSF UART
 
-  // pinMode(ledPin, OUTPUT);
-  // digitalWrite(ledPin, LOW);
-
+  // Initialize relay pins
   pinMode(RELAY_PIN1, OUTPUT);     // Set the relay pin as output
   digitalWrite(RELAY_PIN1, LOW);  // Turn relay OFF (active-low relay)
 
@@ -161,32 +161,35 @@ void setup() {
   pinMode(RELAY_PIN4, OUTPUT);     // Set the relay pin as output
   digitalWrite(RELAY_PIN4, LOW);  // Turn relay OFF (active-low relay)
 
+  // Initialize RoboClaw
   serial2.begin(38400, SERIAL_8N1, 16, 17);
   roboclaw.begin(38400);
 
+  // Initialize ESP-NOW
   WiFi.mode(WIFI_STA);
   WiFi.disconnect();
 
+  // Check if ESP32 now is working (optional)
   if (esp_now_init() != ESP_OK) {
     Serial.println("ESP-NOW init failed");
     return;
   }
+
+  // Registers the peers 
   esp_now_peer_info_t peerInfo = {};
   memcpy(peerInfo.peer_addr, receiverAddress, 6);
   
   peerInfo.channel = 0;
   peerInfo.encrypt = false;
 
+  // Checks if the peer is added successfully
   if (esp_now_add_peer(&peerInfo) != ESP_OK) {
     Serial.println("Failed to add peer");
     return;
   }
-
-  // esp_now_register_recv_cb(onDataRecv);
-
-  uint16_t volts = roboclaw.ReadMainBatteryVoltage(ROBOCLAW_ADDR);
-  Serial.print("Battery Voltage: ");
-  Serial.println(volts / 10.0);
+  else{
+    esp_now_register_recv_cb(onDataRecv);
+  }
 }
 
 void loop() {
