@@ -14,3 +14,27 @@ By offering open-source access to the AgriCruiser, we promote innovation through
 
 ## Circuit Diagram for AgriCrusier:
 ![image](https://github.com/user-attachments/assets/66a488dc-2805-404c-b62c-07e03828eeb1)
+## Circuit for AgriCrusier:
+### Circuit Diagram for ArgiCrusier
+The following diagram shows the wiring between the **ESP32**, **RoboClaw motor controller**, **RadioMaster receiver**, **relay module**, and the **power distribution system**.
+<img width="1320" height="740" alt="circuit (1)" src="https://github.com/user-attachments/assets/de50e554-5e90-495d-9da1-14c720e1f77f" />
+
+### ESP32 Pin Connections
+| ESP32 Pin | Connected To         | Purpose                                      |
+|-----------|----------------------|----------------------------------------------|
+| VIN       | 5V from Receiver     | To power/complete circuit from ESP32 to Reciever                           |
+| GND       | Common Ground        | Shared ground reference                      |
+| RX1 (GPIO 22) | RadioMaster TX   | Receive CRSF data from RadioMaster receiver           |
+| TX1 (GPIO 23) | RadioMaster RX   | Send data to RadioMaster receiver (if needed)         |
+| RX2 (GPIO 16) | RoboClaw TX      | Receive data (encoders, telemetry) from RoboClaw |
+| TX2 (GPIO 17) | RoboClaw RX      | Send motor commands to RoboClaw              |
+| GPIO 5    | Relay Module IN1     | Control Solenoid 1                           |
+| GPIO 18   | Relay Module IN2     | Control Solenoid 2                           |
+| GPIO 19   | Relay Module IN3     | Control Solenoid 3                           |
+| GPIO 21   | Relay Module IN4     | Control Solenoid 4                           |
+| GPIO 2    | Status LED (optional)| Debugging / system heartbeat indicator       |
+
+### 🔋 Power System
+- **Main Power:** 24 V LiFePO₄ battery pack.  
+- **Power Distribution Board:** Splits 24 V supply to RoboClaw, motors, and relay module.  
+- **LM317 + DC-DC Converter:** Regulates 24 V down to 5 V to be used for the ESP32 and receiver. 
