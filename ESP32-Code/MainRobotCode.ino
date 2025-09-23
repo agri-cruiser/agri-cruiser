@@ -213,12 +213,13 @@ void loop() {
   delay(10);
 }
 
-
+// Parse CRSF packet and control motors/solenoids
 void parseCRSFPacket(uint8_t *data, int len) {
   if (data[2] == 0x16) { // RC Channels frame
     uint16_t channels[16];
     uint8_t *p = &data[3];
 
+    // Extract 11-bit channel values
     channels[0] = ((p[0] | p[1] << 8) & 0x07FF);
     channels[1] = ((p[1] >> 3 | p[2] << 5) & 0x07FF);
     channels[2] = ((p[2] >> 6 | p[3] << 2 | p[4] << 10) & 0x07FF);
@@ -231,7 +232,7 @@ void parseCRSFPacket(uint8_t *data, int len) {
     channels[9]  = ((p[12] >> 3 | p[13] << 5) & 0x07FF);
     channels[10] = ((p[13] >> 6 | p[14] << 2 | p[15] << 10) & 0x07FF);
 
-
+    // Map channels to -1.0 to 1.0 range
     float ch1 = ((channels[1] - 992.0f) / 820.0f); // Throttle
     float ch2 = ((channels[3] - 992.0f) / 820.0f); // Steering
 
@@ -244,80 +245,55 @@ void parseCRSFPacket(uint8_t *data, int len) {
     if (fabs(ch1) < deadzone) ch1 = 0;
     if (fabs(ch2) < deadzone) ch2 = 0;
 
+    // Convert to Speed values for RoboClaw that uses PID
     float forward = ch1 * MAX_POWER;
     float turn = -ch2 * MAX_TURN;
 
-    float forwardPWM = ch1 * MAX_PWM_F;
-    float turnPWM = -ch2 * MAX_PWM_T;
+    float forwardSpeed = ch1 * MAX_PWM_F;
+    float turnSpeed = -ch2 * MAX_PWM_T;
 
-    int leftPowerPWM = forwardPWM + turnPWM;
-    int rightPowerPWM = forwardPWM - turnPWM;
+    int leftSpeed = forwardSpeed + turnSpeed;
+    int rightSpeed = forwardSpeed - turnSpeed;
 
-    if(leftPowerPWM < 0){
-      roboclaw.BackwardM1(ROBOCLAW_ADDR, -leftPowerPWM);
-      // roboclaw.SpeedM1(ROBOCLAW_ADDR, incomingData.speed1);
+    // Drive motors using Speed-style control
+    if(leftSpeed < 0){
+      roboclaw.BackwardM1(ROBOCLAW_ADDR, -leftSpeed);
     }else{
-      roboclaw.ForwardM1(ROBOCLAW_ADDR, leftPowerPWM);
-      // roboclaw.SpeedM1(ROBOCLAW_ADDR, incomingData.speed1);
+      roboclaw.ForwardM1(ROBOCLAW_ADDR, leftSpeed);
     }
-    if(rightPowerPWM < 0){
-      roboclaw.BackwardM2(ROBOCLAW_ADDR, -rightPowerPWM);
-      // roboclaw.SpeedM2(ROBOCLAW_ADDR, incomingData.speed2);
+    if(rightSpeed < 0){
+      roboclaw.BackwardM2(ROBOCLAW_ADDR, -rightSpeed);
     }else{
-      roboclaw.ForwardM2(ROBOCLAW_ADDR, rightPowerPWM);
-      // roboclaw.SpeedM2(ROBOCLAW_ADDR, incomingData.speed2);
+      roboclaw.ForwardM2(ROBOCLAW_ADDR, rightSpeed);
     }
 
-    // int leftPower = forward + turn;
-    // int rightPower = forward - turn;
-
-    // Serial.printf("L: %d, R: %d\n", leftPower, rightPower);
-
-    // roboclaw.SpeedM1(ROBOCLAW_ADDR, leftPower);
-    // roboclaw.SpeedM2(ROBOCLAW_ADDR, rightPower);
-    
-    //  if(leftPower == 0){
-    //    roboclaw.ForwardM1(ROBOCLAW_ADDR, 0);
-    //  }
-    //  if(rightPower == 0){
-    //    roboclaw.ForwardM2(ROBOCLAW_ADDR, 0);
-    //  }
-
-
+    // Map switches to solenoids
     if (channels[6] > 1500) {  // Or adjust threshold as needed
       Serial.println("Active 1");
-      // outgoingData.solenoid1 = true;
       digitalWrite(RELAY_PIN1, HIGH);  // Turn relay OFF (active-low relay)
     } else {
       Serial.println("NOT ACTIVE 1");
-      // outgoingData.solenoid1 = false;
       digitalWrite(RELAY_PIN1, LOW);  // Turn relay OFF (active-low relay)
     }
     if (channels[7] > 1500) {  // Or adjust threshold as needed
       Serial.println("Active 2");
-      // outgoingData.solenoid2 = true;
       digitalWrite(RELAY_PIN2, HIGH);  // Turn relay OFF (active-low relay)
     } else {
       Serial.println("NOT ACTIVE 2");
-      // outgoingData.solenoid2 = false;
       digitalWrite(RELAY_PIN2, LOW);  // Turn relay OFF (active-low relay)
     }
     if (channels[8] > 1500) {  // Or adjust threshold as needed
       Serial.println("Active 3");
-      // outgoingData.solenoid3 = true;
       digitalWrite(RELAY_PIN3, HIGH);  // Turn relay OFF (active-low relay)
     } else {
       Serial.println("NOT ACTIVE 3");
-      // outgoingData.solenoid3 = false;
       digitalWrite(RELAY_PIN3, LOW);  // Turn relay OFF (active-low relay)
     }
     if (channels[9] > 1500) {  // Or adjust threshold as needed
       Serial.println("Active 4");
-      // outgoingData.solenoid4 = true;
       digitalWrite(RELAY_PIN4, HIGH);  // Turn relay OFF (active-low relay)
     } else {
       Serial.println("NOT ACTIVE 4");
-      // outgoingData.solenoid4 = false;
       digitalWrite(RELAY_PIN4, LOW);  // Turn relay OFF (active-low relay)
     }
   }
