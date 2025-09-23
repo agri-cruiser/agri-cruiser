@@ -5,9 +5,12 @@ AgriCruiser: An Open Source Agriculture Robot for Over-the-Row Navigation
 - [Project Overview](#overview-of-the-agricruiser)
 - [Open-Source ArgiCruiser](#open-source-agricruiser)
 - [Mechanical Design](#mechanical-design)
+    - [Chassis](#chassis)
+    - [Transmission System](#transmission-system)
+    - [Caster Wheel](#caster-wheel) 
 - [Circuit Design](#circuit-design)
 - [Software Design](#software-design)
-  - [Software Setup](#software-setup)
+    - [Software Setup](#software-setup)
 
 
 ## Overview of the AgriCruiser
@@ -25,7 +28,7 @@ Build the frame using aluminum extrusions to achieve both strength and lightweig
 Finally, design the chassis to allow track width adjustment between 1.42 m and 1.57 m (measured at the driven wheel centers). This feature enables the robot to adapt to various crop layouts in the field without requiring complete disassembly, ensuring the system remains versatile and efficient.
  ![Image Alt](https://github.com/StructuresComp/agri-cruiser/blob/97178a4c4580bc165dab21d5563dfaf69bd2e226/images/CAD_Chassis.png)
 ### Transmission System
-### Caster Wheels 
+### Caster Wheel 
 
 ## Circuit Design
 ### Circuit Diagram for ArgiCrusier
