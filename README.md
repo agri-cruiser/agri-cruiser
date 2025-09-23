@@ -51,7 +51,7 @@ We chose a two-wheel drive instead of a four-wheel drive to keep costs and mecha
 To the best of our knowledge, the AgriCruiser introduces a novel configuration in agricultural robotics at this scale by combining a two-wheel front differential drive with two passive rear caster wheels. This setup offers excellent maneuverability while also improving energy efficiency by avoiding the wheel skidding that often occurs in four-wheel drive systems during turns.
 
 In this design, the two powered front wheels generate motion, while the rear caster wheels passively follow. The casters used are 12-inch swivel pneumatic casters with a bolt-on swivel lock. These can be locked or left free to swivel, giving control over their motion and preventing unwanted caster rotations. Locking the rear casters reduced minor heading deviations on uneven terrain during long, straight passes, helping the robot stay aligned within narrow crop rows. On rougher patches or potholes, the locked setting further improved directional stability.
-
+![Image Alt](https://github.com/StructuresComp/agri-cruiser/blob/2f9c5f66baa831453833d5bae7f16ee296aa54e4/images/Caster_Wheel.png)
 
 ## Circuit Design
 ### Circuit Diagram for ArgiCrusier
