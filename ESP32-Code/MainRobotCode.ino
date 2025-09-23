@@ -9,13 +9,17 @@
 #define RELAY_PIN3  19
 #define RELAY_PIN4  21
 
+// RoboClaw motor controller address
 #define ROBOCLAW_ADDR 0x80
 
-HardwareSerial serial2(2);  // RX=16, TX=17
+// UART2 for RoboClaw (pins 16 = RX, 17 = TX) to communicate with RoboClaw
+HardwareSerial serial2(2); 
 RoboClaw roboclaw(&serial2, 10000);
+
+// MAC address of peer ESP32 for ESP-NOW communication (Optional if wanting to communicate with other ESP32)
 uint8_t receiverAddress[] = { 0xAC, 0x15, 0x18, 0xD8, 0xD0, 0xD8 };
 
-
+// Struct for incoming motor + solenoid commands to recieve commands
 typedef struct struct_message {
   int speed1;
   int speed2;
@@ -25,6 +29,7 @@ typedef struct struct_message {
   bool solenoid4;
 } struct_message;
 
+// Struct for outgoing telemetry (encoders, voltage, motor speeds) 
 typedef struct struct_message1 {
   int enc1;
   int enc2;
@@ -34,72 +39,72 @@ typedef struct struct_message1 {
 } struct_message1;
 
 struct_message1 sendingData;
-
 struct_message incomingData;
+
+// Status LED pin (optional)
 const int ledPin = 2;
+
+// Encoder counts per revolution
 #define CPR 4000  // 1000 lines * 4 (quadrature)
 
+// Motor control scaling constants
 int MAX_POWER = 35000;
 int MAX_TURN = 35000;
-
 int MAX_PWM_F = 64;
 int MAX_PWM_T = 32; 
 
-// CRSF buffer
+// Buffer for CRSF packets from RC receiver
 uint8_t crsfBuffer[64];
 int crsfPos = 0;
 
+// Callback for handling incoming ESP-NOW data
 void onDataRecv(const uint8_t *mac, const uint8_t *incomingDataRaw, int len) {
   memcpy(&incomingData, incomingDataRaw, sizeof(incomingData));
 
+  // Print received data for debugging
   Serial.printf("M1: %d, M2: %d\n", incomingData.speed1, incomingData.speed2);
-  // digitalWrite(ledPin, !digitalRead(ledPin));
 
+  // Control motors based on received speeds from ESP32 
   if(incomingData.speed1 < 0){
-    // roboclaw.BackwardM1(ROBOCLAW_ADDR, -incomingData.speed1);
     roboclaw.SpeedM1(ROBOCLAW_ADDR, incomingData.speed1);
   }else{
-    // roboclaw.ForwardM1(ROBOCLAW_ADDR, incomingData.speed1);
     roboclaw.SpeedM1(ROBOCLAW_ADDR, incomingData.speed1);
   }
+
   if(incomingData.speed2 < 0){
-    // roboclaw.BackwardM2(ROBOCLAW_ADDR, -incomingData.speed2);
     roboclaw.SpeedM2(ROBOCLAW_ADDR, incomingData.speed2);
   }else{
-    // roboclaw.ForwardM2(ROBOCLAW_ADDR, incomingData.speed2);
     roboclaw.SpeedM2(ROBOCLAW_ADDR, incomingData.speed2);
   }
 
+  // If speed is zero, ensure motor is stopped
   if(incomingData.speed1 == 0){
     roboclaw.ForwardM1(ROBOCLAW_ADDR, 0);
-    // roboclaw.BackwardM1(ROBOCLAW_ADDR, -incomingData.speed1);
-    // roboclaw.SpeedM1(ROBOCLAW_ADDR, incomingData.speed1);
   }
   if(incomingData.speed2 == 0){
-    // roboclaw.BackwardM1(ROBOCLAW_ADDR, -incomingData.speed1);
     roboclaw.ForwardM2(ROBOCLAW_ADDR, 0);
   }
-  // roboclaw.ForwardM2(ROBOCLAW_ADDR, incomingData.speed2);
+  
   // Read encoder values
   uint32_t enc1, enc2;
   bool valid1, valid2;
   enc1 = roboclaw.ReadEncM1(ROBOCLAW_ADDR, NULL, &valid1);
   enc2 = roboclaw.ReadEncM2(ROBOCLAW_ADDR, NULL, &valid2);
 
+  // Read battery voltage
   bool valid3;
   uint16_t volts = roboclaw.ReadMainBatteryVoltage(ROBOCLAW_ADDR);
 
+  // Prepare telemetry data
   struct_message1 telemetry;
   telemetry.enc1 = valid1 ? enc1 : -1;
   telemetry.enc2 = valid2 ? enc2 : -1;
-
-  // Serial.print("Battery Voltage: ");
-  // Serial.println(volts / 10.0);
 
   float x = volts/10.0;
 
   telemetry.voltage = x;
 
+  // Solenoid control through relay pins
   if(incomingData.solenoid1){
     digitalWrite(RELAY_PIN1, HIGH);  // Turn relay OFF (active-low relay)
   }
@@ -125,6 +130,7 @@ void onDataRecv(const uint8_t *mac, const uint8_t *incomingDataRaw, int len) {
     digitalWrite(RELAY_PIN4, LOW);
   }
 
+  // Read motor speeds in counts/sec
   bool valid4, valid5;
   int32_t speed1 = roboclaw.ReadSpeedM1(ROBOCLAW_ADDR,NULL, &valid4);  // counts/sec
   int32_t speed2 = roboclaw.ReadSpeedM2(ROBOCLAW_ADDR,NULL, &valid5);  // counts/sec
