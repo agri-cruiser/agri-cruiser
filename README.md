@@ -8,9 +8,11 @@ AgriCruiser: An Open Source Agriculture Robot for Over-the-Row Navigation
 By offering open-source access to the AgriCruiser, we promote innovation through community collaboration and allow other researchers, developers, and farmers to adapt and build on the robot for a variety of use cases. In the MechanicalDesign folder of this repository, we've linked the SolidWorks models, which we shared through GrabCAD Community. Most of the parts we used are off-the-shelf components since we wanted to keep the build as simple as possible. A few parts did need some basic machining, which we handled with tools like a water-jet cutter, bandsaw, or drill press. For parts that do need that level of precision, there are plenty of companies that offer affordable custom fabrication services, including water-jet cutting, laser cutting, and CNC machining. Because all of our parts were already designed in SolidWorks, it was just a matter of exporting files in standard formats like STEP or DXF. In our case, all of the water-jet parts were made by an outside fabrication company, and some were manufactured in-house at UCLA. 
 
 ## Circuit for AgriCrusier:
+### Circuit Diagram for ArgiCrusier
 The following diagram shows the wiring between the **ESP32**, **RoboClaw motor controller**, **RadioMaster receiver**, **relay module**, and the **power distribution system**.
 <img width="1320" height="740" alt="circuit (1)" src="https://github.com/user-attachments/assets/de50e554-5e90-495d-9da1-14c720e1f77f" />
 
+### ESP32 Pin Connections
 | ESP32 Pin | Connected To         | Purpose                                      |
 |-----------|----------------------|----------------------------------------------|
 | VIN       | 5V from Receiver     | To power/complete circuit from ESP32 to Reciever                           |
