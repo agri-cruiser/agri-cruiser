@@ -48,7 +48,7 @@ const int ledPin = 2;
 #define CPR 4000  // 1000 lines * 4 (quadrature)
 
 // Motor control scaling constants
-int MAX_POWER = 35000;
+int MAX_SPEED = 35000;
 int MAX_TURN = 35000;
 int MAX_PWM_F = 64;
 int MAX_PWM_T = 32; 
@@ -246,25 +246,23 @@ void parseCRSFPacket(uint8_t *data, int len) {
     if (fabs(ch2) < deadzone) ch2 = 0;
 
     // Convert to Speed values for RoboClaw that uses PID
-    float forward = ch1 * MAX_POWER;
+    float forward = ch1 * MAX_SPEED;
     float turn = -ch2 * MAX_TURN;
 
-    float forwardSpeed = ch1 * MAX_PWM_F;
-    float turnSpeed = -ch2 * MAX_PWM_T;
-
+    // Calculate individual motor speeds
     int leftSpeed = forwardSpeed + turnSpeed;
     int rightSpeed = forwardSpeed - turnSpeed;
 
     // Drive motors using Speed-style control
     if(leftSpeed < 0){
-      roboclaw.BackwardM1(ROBOCLAW_ADDR, -leftSpeed);
+      roboclaw.SpeedM1(ROBOCLAW_ADDR, -leftSpeed);
     }else{
-      roboclaw.ForwardM1(ROBOCLAW_ADDR, leftSpeed);
+      roboclaw.SpeedM1(ROBOCLAW_ADDR, leftSpeed);
     }
     if(rightSpeed < 0){
-      roboclaw.BackwardM2(ROBOCLAW_ADDR, -rightSpeed);
+      roboclaw.SpeedM2(ROBOCLAW_ADDR, -rightSpeed);
     }else{
-      roboclaw.ForwardM2(ROBOCLAW_ADDR, rightSpeed);
+      roboclaw.SpeedM2(ROBOCLAW_ADDR, rightSpeed);
     }
 
     // Map switches to solenoids
