@@ -7,5 +7,10 @@ AgriCruiser: An Open Source Agriculture Robot for Over-the-Row Navigation
 ## Open-source AgriCruiser 
 By offering open-source access to the AgriCruiser, we promote innovation through community collaboration and allow other researchers, developers, and farmers to adapt and build on the robot for a variety of use cases. In the MechanicalDesign folder of this repository, we've linked the SolidWorks models, which we shared through GrabCAD Community. Most of the parts we used are off-the-shelf components since we wanted to keep the build as simple as possible. A few parts did need some basic machining, which we handled with tools like a water-jet cutter, bandsaw, or drill press. For parts that do need that level of precision, there are plenty of companies that offer affordable custom fabrication services, including water-jet cutting, laser cutting, and CNC machining. Because all of our parts were already designed in SolidWorks, it was just a matter of exporting files in standard formats like STEP or DXF. In our case, all of the water-jet parts were made by an outside fabrication company, and some were manufactured in-house at UCLA. 
 
+## Mechanical Design
+### Chassis 
+### Transmission System
+### Caster Wheels 
+
 ## Circuit Diagram for AgriCrusier:
 ![image](https://github.com/user-attachments/assets/66a488dc-2805-404c-b62c-07e03828eeb1)
