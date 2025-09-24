@@ -178,7 +178,7 @@ With this setup, the ESP32 can:
 ### Manufacture and Assembly 
 1. Since the wheels are connected through a long steel rod, it is common for them to become slightly misaligned, causing the wheels not to sit straight. If you want to set the wheels correctly, there are a few things to pay attention to:
 
-   * The spacer between the rod and the motor needs to be a specific length. While SolidWorks provides a total spacer length, this is primarily theoretical. In practice, if your steel rod is cut slightly longer or shorter than the one shown in SolidWorks, the spacer length will also need to be adjusted accordingly. Since the steel rod is manufactured in-house (we bought a 6-foot steel rod and cut it down), the final length was not exact. That is why you see some shorter spacers (often less than an inch, shown in the blue box) — these account for the difference in rod length. Thus, when rebuilding the transmission system, always check the steel rod length and adjust the spacer accordingly. The advice is to buy extra spacers; the product link is also provided in the BOM. 
+   * The spacer between the rod and the motor needs to be a specific length. While SolidWorks provides a total spacer length, this is primarily theoretical. In practice, if your steel rod is cut slightly longer or shorter than the one shown in SolidWorks, the spacer length will also need to be adjusted accordingly. Since the steel rod was manufactured in-house (we purchased a 6-foot steel rod and cut it down to the desired length), the final length was not exact. That is why you see some shorter spacers (often less than an inch, shown in the blue box) — these account for the difference in rod length. Thus, when rebuilding the transmission system, always check the steel rod length and adjust the spacer accordingly. The advice is to buy extra spacers; the product link is also provided in the BOM. 
    
    * Another spacer detail to watch for is orientation. As you can see in the figure below (or in SolidWorks), one side of the spacer is “longer” than the other. Be sure to place the steel rod on the longer spacer side (red box) outside, while the rod on the shorter spacer side (green box) is on the inside, closer to the wheel.
 
@@ -191,11 +191,11 @@ With this setup, the ESP32 can:
    * In our initial build, we left out some of these supports, which made the transmission system less secure and caused the wheels to become misaligned.
 
 3. When manufacturing adapters for the transmission system, make sure to account for Geometric Dimensioning and Tolerancing (GD&T). Adapters are critical because they connect and transfer motion from the motor shaft to the wheel. If tolerances are ignored and the hole size on the adapter is exactly equal to the shaft diameter, the adapter will not fit onto the shaft.
-   * In our initial build, I did not include proper tolerances on the adapters. As a result, I had to manually sand down the adapter holes to make them slightly larger, so the motor shaft could fit through. However, if the holes are made too large (either by oversanding or by applying too much tolerance), the adapter becomes loose on the shaft. In that case, it will not fully transfer the motor’s power and motion to the wheel, causing power loss.
+   * In our initial build, I did not include proper tolerances on the adapters. As a result, I had to manually sand down the adapter holes to make them slightly larger, so the motor shaft could fit through. However, if the holes are made too large (either by oversanding or by applying too much tolerance), the adapter becomes loose on the shaft. In that case, the motor’s power and motion will not be fully transferred to the wheel, resulting in power loss.
 
 
 ### Electronics and Hardware
-1. During the process, the communication between the RoboClaw and the ESP32 was not working. In order to ensure this works, there are a few things needed to be done:
+1. During the process, the communication between the RoboClaw and the ESP32 was not working. In order to ensure this works, there are a few things that need to be done:
    - Download and open Basic Micro Studio
    - When opened, click on Help -> Download Legacy Motion Studio which will give you a zip file
    - Unzip the file and open up the file that says `Basicmico Motion Studio`
