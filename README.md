@@ -182,7 +182,7 @@ With this setup, the ESP32 can:
 
    * Lastly, make sure the clamp on the wheel axle is fully seated and all components are secured. In one of our experiments, the clamp was not fully inserted (yellow box), which caused the steel rod and wheel to misalign (as shown in the figure below).
 
-   ![Image Alt](https://github.com/StructuresComp/agri-cruiser/blob/bafdcb1a0db3ffaa33ebde296970bbe61e698f55/images/Troubleshooting_Misalignment.png)
+   ![Image Alt](https://github.com/StructuresComp/agri-cruiser/blob/ee85f0ba36dc7ce276de6ec9ceb5f835d5c610e5/images/Troubleshooting_Misalignment.png)
 
 2. Increase supporter components
 
