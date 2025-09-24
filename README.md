@@ -126,6 +126,7 @@ To get started, follow these steps:
       - Download the library ZIP from the official GitHub repo: https://github.com/basicmicro/roboclaw_arduino_library
       - In Arduino IDE, go to **Sketch → Include Library → Add .ZIP Library…**. 
       - Select the downloaded ZIP file.
+      - **Note:** The libary for RoboClaw is also within the GitHub
    - **Other Libraries**
       - `WiFi.h`, `esp_now.h`, `HardwareSerial.h` are built into the ESP32 board
 
