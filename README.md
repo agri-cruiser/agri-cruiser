@@ -180,7 +180,7 @@ With this setup, the ESP32 can:
    
    * Another spacer detail to watch for is orientation. As you can see in the figure below (or in SolidWorks), one side of the spacer is “longer” than the other. Be sure to place the steel rod on the longer spacer side (red box) outside, while the rod on the shorter spacer side (green box) is on the inside, closer to the wheel.
 
-   * Lastly, make sure the clamp on the wheel axle is fully seated and all components are secured. In one of our experiments, the clamp was not fully inserted (yellow box), which caused the steel rod and wheel to misalign (as shown in the figure below).
+   * Lastly, make sure the clamp on the wheel axle is fully seated and all components are secured. In one of our experiments, the clamp was not fully inserted (yellow box), resulting in misalignment between the steel rod and wheel, which caused the wheel to accidentally hit the steel rod (as shown in the figure below).
 
    ![Image Alt](https://github.com/StructuresComp/agri-cruiser/blob/ee85f0ba36dc7ce276de6ec9ceb5f835d5c610e5/images/Troubleshooting_Misalignment.png)
 
