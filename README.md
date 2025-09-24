@@ -189,6 +189,9 @@ With this setup, the ESP32 can:
 
 2. Make sure to include all the support components — such as the support plate, diagonal brace, and especially the L-brackets at every corner — when connecting the transmission system to the chassis. In our initial build, we left out some of these supports, which made the transmission system less secure and caused the wheels to become misaligned.
 
+3. When manufacturing adapters for the transmission system, make sure to account for Geometric Dimensioning and Tolerancing (GD&T). Adapters are critical because they connect and transfer motion from the motor shaft to the wheel. If tolerances are ignored and the hole size on the adapter is exactly equal to the shaft diameter, the adapter will not fit onto the shaft.
+In our initial build, I did not include proper tolerances on the adapters. As a result, I had to manually sand down the adapter holes to make them slightly larger, so the motor shaft could fit through. However, if the holes are made too large (either by oversanding or by applying too much tolerance), the adapter becomes loose on the shaft. In that case, it will not fully transfer the motor’s power and motion to the wheel, causing power loss.
+
 
 ### Electronics and Hardware
 1. During the process, the communication between the RoboClaw and the ESP32 was not working. In order to ensure this works, there are a few things needed to be done:
