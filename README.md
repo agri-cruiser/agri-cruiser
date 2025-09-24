@@ -174,5 +174,7 @@ With this setup, the ESP32 can:
 ## Troubleshooting 
 
 ### Manufacture and Assembly 
-
+1. I
+2. I
+3. I
 ### Electronics and Hardware
