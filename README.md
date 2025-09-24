@@ -184,9 +184,11 @@ With this setup, the ESP32 can:
 
    * Lastly, make sure the clamp on the wheel axle is fully seated and all components are secured. In one of our experiments, the clamp was not fully inserted (yellow box), resulting in misalignment between the steel rod and wheel, which caused the wheel to accidentally hit the steel rod (as shown in the figure below).
 
+   **Misalignment Example**
    ![Image Alt](https://github.com/StructuresComp/agri-cruiser/blob/ee85f0ba36dc7ce276de6ec9ceb5f835d5c610e5/images/Troubleshooting_Misalignment.png)
 
-2. Increase supporter components
+2. Make sure to include all the supports — such as the support plate, diagonal brace, and especially the L-brackets at every corner — when connecting the transmission system to the chassis. In our initial build, we left out some of these supports, which made the transmission system less secure and caused the wheels to become misaligned.
+
 
 ### Electronics and Hardware
 1. During the process, the communication between the RoboClaw and the ESP32 was not working. In order to ensure this works, there are a few things needed to be done:
