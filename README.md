@@ -187,7 +187,7 @@ With this setup, the ESP32 can:
    **Misalignment Example**
    ![Image Alt](https://github.com/StructuresComp/agri-cruiser/blob/ee85f0ba36dc7ce276de6ec9ceb5f835d5c610e5/images/Troubleshooting_Misalignment.png)
 
-2. Make sure to include all the supports — such as the support plate, diagonal brace, and especially the L-brackets at every corner — when connecting the transmission system to the chassis. In our initial build, we left out some of these supports, which made the transmission system less secure and caused the wheels to become misaligned.
+2. Make sure to include all the support components — such as the support plate, diagonal brace, and especially the L-brackets at every corner — when connecting the transmission system to the chassis. In our initial build, we left out some of these supports, which made the transmission system less secure and caused the wheels to become misaligned.
 
 
 ### Electronics and Hardware
