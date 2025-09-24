@@ -174,7 +174,14 @@ With this setup, the ESP32 can:
 ## Troubleshooting 
 
 ### Manufacture and Assembly 
-1. I
-2. I
-3. I
+1. Since the wheels are connected through a long steel rod, it is common for them to become slightly misaligned, causing the wheels not to sit straight. If you want to set the wheels correctly, there are a few things to pay attention to:
+
+* The spacer between the rod and the motor needs to be a specific length. While SolidWorks provides a total spacer length, this is mostly theoretical. In practice, if your steel rod is cut slightly longer or shorter than the one shown in SolidWorks, the spacer length will also need to change. Since the steel rod is manufactured in-house (we bought a 6-ft rod and cut it down), the final length was not exact. That is why you will see some shorter spacers (often less than an inch, shown in the blue box) — these account for the difference in rod length. Thus, when rebuilding the transmission system, always check the steel rod length and adjust the spacer accordingly. The advice is to buy extra spacers, the product link is provided in the BOM. 
+
+* Another spacer detail to watch for is orientation. As you can see in the figure above (or in SolidWorks), one side of the spacer is “longer” than the other. Be sure to place the steel rod on the longer side (red box) outside, while the rod on the shorter side (green box) is on the inside, closer to the wheel.
+
+* Lastly, make sure the clamp on the wheel axle is fully seated and all components are secured. In our experiment (shown in the figure below), the clamp was not all the way in, which caused the steel rod and wheel to misalign.
+
+2. Increase supporter components
+
 ### Electronics and Hardware
