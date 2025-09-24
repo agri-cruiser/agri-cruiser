@@ -5,12 +5,15 @@ AgriCruiser: An Open Source Agriculture Robot for Over-the-Row Navigation
 - [Project Overview](#overview-of-the-agricruiser)
 - [Open-Source ArgiCruiser](#open-source-agricruiser)
 - [Mechanical Design](#mechanical-design)
-    - [Chassis](#chassis)
-    - [Transmission System](#transmission-system)
-    - [Caster Wheel](#caster-wheel) 
+   - [Chassis](#chassis)
+   - [Transmission System](#transmission-system)
+   - [Caster Wheel](#caster-wheel) 
 - [Circuit Design](#circuit-design)
 - [Software Design](#software-design)
-    - [Software Setup](#software-setup)
+   - [Software Setup](#software-setup)
+- [Troubleshooting](#troubleshooting)
+   - [Manufacture and Assembly](#manufacture-and-assembly)
+   - [Electronics and Hardware](#electronics-and-hardware)
 
 
 ## Overview of the AgriCruiser
@@ -167,3 +170,9 @@ With this setup, the ESP32 can:
 - Drive motors with closed-loop feedback through RoboClaw.  
 - Trigger solenoids using relays.  
 - Send telemetry data back over ESP-NOW.  
+
+## Troubleshooting 
+
+### Manufacture and Assembly 
+
+### Electronics and Hardware
