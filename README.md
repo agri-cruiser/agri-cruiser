@@ -189,4 +189,5 @@ With this setup, the ESP32 can:
 2. Increase supporter components
 
 ### Electronics and Hardware
+1. During the process, the communication between the RoboClaw and the ESP32 was not working. In order to ensure this works, there are a few things needed to be done:
 
