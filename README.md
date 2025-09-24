@@ -178,7 +178,7 @@ With this setup, the ESP32 can:
 
    * The spacer between the rod and the motor needs to be a specific length. While SolidWorks provides a total spacer length, this is mostly theoretical. In practice, if your steel rod is cut slightly longer or shorter than the one shown in SolidWorks, the spacer length will also need to change. Since the steel rod is manufactured in-house (we bought a 6-ft rod and cut it down), the final length was not exact. That is why you will see some shorter spacers (often less than an inch, shown in the blue box) — these account for the difference in rod length. Thus, when rebuilding the transmission system, always check the steel rod length and adjust the spacer accordingly. The advice is to buy extra spacers, the product link is provided in the BOM. 
 
-   ![Image Alt](https://github.com/StructuresComp/agri-cruiser/blob/6bc9d9e0055689be077dd6c85d81eaf6c15acb56/images/Troubleshooting_Misalignment.png)
+   ![Image Alt](https://github.com/StructuresComp/agri-cruiser/blob/5c089fc13f6bd19bb072b8316e437ce4446e6bda/images/Troubleshooting_Misalignment.png)
    
    * Another spacer detail to watch for is orientation. As you can see in the figure above (or in SolidWorks), one side of the spacer is “longer” than the other. Be sure to place the steel rod on the longer side (red box) outside, while the rod on the shorter side (green box) is on the inside, closer to the wheel.
 
