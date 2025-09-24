@@ -193,3 +193,5 @@ With this setup, the ESP32 can:
    - Download and open Basic Micro Studio
    - When opened, click on Help -> Download Legacy Motion Studio which will give you a zip file
    - Unzip the file and open up the file that says `Basicmico Motion Studio`
+   - Once opened, connect your RoboClaw to the Basicmicro Motion Studio
+   - Once connected, you should be able to see the current firmware version and the available firmware version. Update the firmware to the version listed above
