@@ -190,4 +190,6 @@ With this setup, the ESP32 can:
 
 ### Electronics and Hardware
 1. During the process, the communication between the RoboClaw and the ESP32 was not working. In order to ensure this works, there are a few things needed to be done:
-
+   - Download and open Basic Micro Studio
+   - When opened, click on Help -> Download Legacy Motion Studio which will give you a zip file
+   - Unzip the file and open up the file that says `Basicmico Motion Studio`
