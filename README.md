@@ -190,12 +190,12 @@ With this setup, the ESP32 can:
 
 2. Make sure to include all the support components — such as the support plate, diagonal brace, and especially the L-brackets at every corner — when connecting the transmission system to the chassis:
    * In our initial build, we left out some of these supports, which made the transmission system less secure and caused the wheels to become misaligned.
-   
+
 #### Geometric Dimensioning and Tolerancing 
 3. When manufacturing adapters for the transmission system, make sure to account for Geometric Dimensioning and Tolerancing (GD&T). Adapters are critical because they connect and transfer motion from the motor shaft to the wheel. If tolerances are ignored and the hole size on the adapter is exactly equal to the shaft diameter, the adapter will not fit onto the shaft:
    * In our initial build, I did not include proper tolerances on the adapters. As a result, I had to manually sand down the adapter holes to make them slightly larger, so the motor shaft could fit through. However, if the holes are made too large (either by oversanding or by applying too much tolerance), the adapter becomes loose on the shaft. In that case, the motor’s power and motion will not be fully transferred to the wheel, resulting in power loss.
 
-#### Timing Belt Size
+#### Timing Belt Sizing 
 4. For the timing belt, it connects the pulley on the motor to the pulley on the wheel. We’ve included the McMaster link for the timing belt we used, which worked for our build. However, when rebuilding the transmission and purchasing a new belt, the key detail to pay attention to is the Outer Circle (as it is labeled on McMaster-Carr):
    * The Outer Circle is simply the total length of the timing belt, and this length will vary if the steel rod length is different. As noted in Troubleshooting Item 1, the steel rod is manufactured in-house, so its final length might not exactly match the design. For this reason, we recommend purchasing the belt only after you finish building the transmission system. At that point, measure the distance between the two pulleys directly on the physical build and use that measurement to calculate the exact belt length. Relying only on SolidWorks measurements may not be accurate enough. If the rod ends up longer, you’ll need a slightly larger belt; if shorter, a smaller belt.
    * All other belt specifications — such as pitch, width, and tooth profile — will remain the same. The provided McMaster link for the timing belt contains all of those fixed specifications for reference; only the Outer Circle may change depending on the rod length.
