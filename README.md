@@ -25,14 +25,14 @@ By offering open-source access to the AgriCruiser, we promote innovation through
 ## Mechanical Design
 **Note** The BOM is for ONE driven wheel and ONE caster wheel. If you want to build the entire platform, double every component
  
-The Bill of Materials BOM, provided in the [BOM](https://github.com/StructuresComp/agri-cruiser/tree/2c079f16a274f6ae52bb82f286a7c02fbf9e2792/BOM) folders, lists the details of each component. For off-the-shelf parts, we’ve included either a McMaster-Carr or Amazon link. While these parts can also be sourced from other suppliers for cheaper prices, the provided links are helpful because they contain the specifications for each component. If you are in the United States, it is often more convenient to order directly through the linked stores. **Note**: You should do a price comparison from different stores before purchasing any parts. 
+The Bill of Materials BOM, provided in the [BOM](https://github.com/StructuresComp/agri-cruiser/tree/2c079f16a274f6ae52bb82f286a7c02fbf9e2792/BOM) folders, lists the details of each component. For off-the-shelf parts, we’ve included either a McMaster-Carr or an Amazon link. While these parts can also be sourced from other suppliers for cheaper prices, the provided links are helpful because they contain the specifications for each component. If you are in the United States, it is often more convenient to order directly through the linked stores. **Note**: You should do a price comparison from different stores before purchasing any parts. 
 
 For water-jet–cut parts, we used SendCutSend, a company based in Reno, Nevada. They accept STL files, which can be exported directly from the provided SolidWorks files. If you prefer to use a different manufacturer, provide them with the CAD files of the components.
 
 For manually machined parts, most are made from basic stock materials, such as square tubing or steel rods. We also provided links to buy these items. In most cases, these need to be cut to size and drilled according to the specifications. All drilling and tapping details are included in the SolidWorks files for reference.
 
 ### Chassis 
-Begin by constructing the chassis using a T-slot framing system, which enables quick assembly and allows for later adjustments without welding. Use bolts and brackets instead of permanent welds, allowing each joint to be loosened, repositioned within millimeters, and tightened again with a simple hex key. This reconfigurable setup is essential for adapting the chassis to different crop sizes and field requirements.
+Begin by constructing the chassis using a T-slot framing system, which enables quick assembly and allows for future adjustments without the need for welding. Use bolts and brackets instead of permanent welds, allowing each joint to be loosened, repositioned within millimeters, and tightened again with a simple hex key. This reconfigurable setup is essential for adapting the chassis to different crop sizes and field requirements.
 
 Build the frame using aluminum extrusions to achieve both strength and lightweight, making it ideal for agricultural applications. Since only standard cutting and assembly tools are needed, the design remains practical and does not depend on specialized equipment. Utilize widely available components, such as angle brackets, gussets, and hinges, to reduce costs and ensure the platform can be built and modified anywhere.
 
@@ -126,7 +126,7 @@ To get started, follow these steps:
       - Download the library ZIP from the official GitHub repo: https://github.com/basicmicro/roboclaw_arduino_library
       - In Arduino IDE, go to **Sketch → Include Library → Add .ZIP Library…**. 
       - Select the downloaded ZIP file.
-      - **Note:** The libary for RoboClaw is also within the GitHub
+      - **Note:** The library for RoboClaw is also within GitHub
    - **Other Libraries**
       - `WiFi.h`, `esp_now.h`, `HardwareSerial.h` are built into the ESP32 board
 
@@ -156,10 +156,10 @@ The firmware is structured into key modules that handle communication, motor con
 
 - **RoboClaw Motor Driver Interface**  
   - Handles bidirectional communication with the RoboClaw motor controller via UART2.  
-  - Commands include speed control, encoder feedback, and battery voltage monitoring to all for movement as well as diagnostics.
+  - Commands include speed control, encoder feedback, and battery voltage monitoring for all movement as well as diagnostics.
 
 - **Relay Control (Solenoids)**  
-  - Four GPIO pins control a 4-channel relay board based on the data recieved by controller.  
+  - Four GPIO pins control a 4-channel relay board based on the data received by the controller.  
   - Each relay switches 24 V power to a solenoid valve for actuation.  
 
 - **Telemetry Feedback**  
@@ -168,7 +168,7 @@ The firmware is structured into key modules that handle communication, motor con
 
 ---
 With this setup, the ESP32 can:  
-- Receive control inputs from an RadioMaster transmitter via CRSF.  
+- Receive control inputs from a RadioMaster transmitter via CRSF.  
 - Drive motors with closed-loop feedback through RoboClaw.  
 - Trigger solenoids using relays.  
 - Send telemetry data back over ESP-NOW.  
@@ -176,7 +176,7 @@ With this setup, the ESP32 can:
 ## Troubleshooting 
 
 ### Manufacture and Assembly 
-#### Wheels Misalightment
+#### Wheels Misalignment
 1. Since the wheels are connected through a long steel rod, it is common for them to become slightly misaligned, causing the wheels not to sit straight. If you want to set the wheels correctly, there are a few things to pay attention to:
 
    * The spacer between the rod and the motor needs to be a specific length. While SolidWorks provides a total spacer length, this is primarily theoretical. In practice, if your steel rod is cut slightly longer or shorter than the one shown in SolidWorks, the spacer length will also need to be adjusted accordingly. Since the steel rod was manufactured in-house (we purchased a 6-foot steel rod and cut it down to the desired length), the final length was not exact. That is why you see some shorter spacers (often less than an inch, shown in the blue box) — these account for the difference in rod length. Thus, when rebuilding the transmission system, always check the steel rod length and adjust the spacer accordingly. The advice is to buy extra spacers; the product link is also provided in the BOM. 
@@ -196,14 +196,14 @@ With this setup, the ESP32 can:
    * In our initial build, I did not include proper tolerances on the adapters. As a result, I had to manually sand down the adapter holes to make them slightly larger, so the motor shaft could fit through. However, if the holes are made too large (either by oversanding or by applying too much tolerance), the adapter becomes loose on the shaft. In that case, the motor’s power and motion will not be fully transferred to the wheel, resulting in power loss.
 
 #### Timing Belt Sizing 
-4. For the timing belt, it connects the pulley on the motor to the pulley on the wheel. We’ve included the McMaster link for the timing belt we used, which worked for our build. However, when rebuilding the transmission and purchasing a new belt, the key detail to pay attention to is the Outer Circle (as it is labeled on McMaster-Carr):
+4. The timing belt connects the pulley on the motor to the pulley on the wheel. We’ve included the McMaster link for the timing belt we used, which worked for our build. However, when rebuilding the transmission and purchasing a new belt, the key detail to pay attention to is the Outer Circle (as it is labeled on McMaster-Carr):
    * The Outer Circle is simply the total length of the timing belt, and this length will vary if the steel rod length is different. As noted in Troubleshooting Item 1, the steel rod is manufactured in-house, so its final length might not exactly match the design. For this reason, we recommend purchasing the belt only after you finish building the transmission system. At that point, measure the distance between the two pulleys directly on the physical build and use that measurement to calculate the exact belt length. Relying only on SolidWorks measurements may not be accurate enough. If the rod ends up longer, you’ll need a slightly larger belt; if shorter, a smaller belt.
    * All other belt specifications — such as pitch, width, and tooth profile — will remain the same. The provided McMaster link for the timing belt contains all of those fixed specifications for reference; only the Outer Circle may change depending on the rod length.
 
 ### Electronics and Hardware
 1. During the process, the communication between the RoboClaw and the ESP32 was not working. In order to ensure this works, there are a few things that need to be done:
    - Download and open Basic Micro Studio
-   - When opened, click on Help -> Download Legacy Motion Studio which will give you a zip file
+   - When opened, click on Help -> Download Legacy Motion Studio, which will give you a zip file
    - Unzip the file and open up the file that says `Basicmico Motion Studio`
    - Once opened, connect your RoboClaw to the Basicmicro Motion Studio
    - Once connected, you should be able to see the current firmware version and the available firmware version. Update the firmware to the version listed above
