@@ -87,7 +87,7 @@ The following diagram shows the wiring between the **ESP32**, **RoboClaw motor c
 - **RoboClaw 2x60A** controls two MP26 MobilePower gearmotors. 
 - Encoders are wired back to RoboClaw for closed-loop speed control.  
 - RoboClaw communicates with ESP32 over **UART2**.
-- **Note:** The most recent version of the RoboClaw did not work in our testing with UART communications, we had to adjust the Firmware Version to 4.1 using [Basic Micro Motion Studio](https://www.basicmicro.com/motor-controller-downloads)
+- **Note:** The most recent version of the RoboClaw did not work in our testing with UART communications, we had to adjust the Firmware Version to 4.28 using [Basic Micro Motion Studio](https://www.basicmicro.com/motor-controller-downloads)
 
 ### Solenoid Control
 - Relay module (4-channel) switches 24 V supply to four solenoid valves.  
