@@ -36,17 +36,21 @@
     p{margin:0; line-height:1.7; color:var(--muted)}
     footer{margin-top:40px; font-size:.95rem; color:var(--muted)}
     .sep{height:1px; background:linear-gradient(90deg,transparent,#2a2f3a,transparent); margin:26px 0}
+    
+    .center{
+    max-width: 720px;     /* readable line length */
+    margin: 0 auto;       /* centers the block */
+    text-align: center;   /* centers the text */}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
       <h1>Agri-Cruiser</h1>
-
       <!-- Buttons -->
       <div class="buttons">
         <!-- Paper -->
-        <a class="pill" href="paper.pdf" target="_blank" rel="noopener">
+        <a class="pill" href="https://arxiv.org/abs/2509.25056" target="_blank" rel="noopener">
           <!-- doc icon -->
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -65,7 +69,7 @@
         </a>
 
         <!-- Demo -->
-        <a class="pill" href="demo.html" target="_blank" rel="noopener">
+        <a class="pill" href="https://www.youtube.com/@StructuresComp" target="_blank" rel="noopener">
           <!-- play icon -->
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M8 5v14l11-7z"/>
@@ -78,22 +82,51 @@
     <div class="sep"></div>
 
     <main>
-      <section id="abstract">
+      <section id="Abstract" class="center">
         <h2>Abstract</h2>
         <p>
-          <!-- Replace with your abstract -->
-          This is a short abstract describing the problem, our approach, and key results.
-          Keep it concise—3–6 sentences works well.
+          We present the AgriCruiser, an open-source over-the-row agricultural robot developed for low-cost deployment 
+          and rapid adaptation across diverse crops and row layouts. The chassis provides an adjustable track width of 
+          1.42 m to 1.57 m, along with a ground clearance of 0.94 m. The AgriCruiser achieves compact pivot turns with 
+          radii of 0.71 m to 0.79 m, enabling efficient headland maneuvers. The platform is designed for the integration 
+          of the other subsystems, and in this study, a precision spraying system was implemented to assess its effectiveness 
+          in weed management. In twelve flax plots, a single robotic spray pass reduced total weed populations (pigweed and Venice mallow) 
+          by 24- to 42-fold compared to manual weeding in four flax plots, while also causing less crop damage. 
+          Mobility experiments conducted on concrete, asphalt, gravel, grass, and both wet and dry soil confirmed 
+          reliable traversal consistent with torque sizing. The complete chassis can be constructed from commodity 
+          T-slot extrusion with minimal machining, resulting in a bill of materials costing approximately $5,000-$6,000, 
+          which enables replication and customization. The mentioned results demonstrate that low-cost, reconfigurable 
+          over-the-row robots can achieve effective weed management with reduced crop damage and labor requirements, 
+          while providing a versatile foundation for phenotyping, sensing, and other agriculture applications. Design 
+          files and implementation details are released to accelerate research and adoption of modular agricultural robotics.
         </p>
       </section>
 
-      <section id="introduction">
+      <section id="introduction" class="center">
         <h2>Brief Introduction</h2>
         <p>
-          <!-- Replace with your intro -->
-          Provide a bit more context: motivation, system overview, and the main
-          contributions or features of Agri-Cruiser.
+            The main contributions of this project are summarized as follows:
         </p>
+        <ul style="text-align:left; display:inline-block; text-align:justify; max-width:700px;">
+            <li>
+            A modular over-the-row chassis design with adjustable track width and high clearance,
+            capable of adapting to different crop types and field layouts.
+            </li>
+            <li>
+            The development of a large, agile platform with sufficient payload capacity to accommodate
+            additional subsystems for various agricultural applications and compact maneuvering via
+            differential drive, enabling 0.79&nbsp;m pivot-turn radii for tight headlands.
+            </li>
+            <li>
+            Precision sprayer integration, capable of herbicide application and data collection to support
+            efficient weed management.
+            </li>
+            <li>
+            Field validation demonstrating large reductions in weed density with lower crop damage, as well
+            as cross-terrain and multi-crop traversal consistent with torque sizing.
+            </li>
+        </ul>
+        <p>Insert picture and videos below</p>
       </section>
 
       <section id="ack">
