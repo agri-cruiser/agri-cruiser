@@ -23,8 +23,14 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 32px 28px;
     }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      background:var(--pill); color:var(--text); border:1px solid var(--border);
+      padding:10px 14px; border-radius:999px; text-decoration:none; font-weight:600;
+      transition:background .12s ease, transform .06s ease, border-color .12s ease;
+    }
     .right-corner{
-    position: fixed; top: 14px; right: 14px;
+    position: fixed; top: 14px; right: 32px;
     display: flex; gap: 10px; z-index: 50;
     }
     @media (max-width:900px){ .grid{ grid-template-columns: repeat(2, 1fr); } }
@@ -45,7 +51,7 @@
 <body>
   <div class="wrap">
     <header>
-      <div class="corner">
+      <div class="right-corner">
         <a class="pill" href="index.html" title="Back">Project Page</a>
       </div>
       <h1>Team</h1>
