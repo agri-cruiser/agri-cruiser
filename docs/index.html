@@ -27,7 +27,7 @@
     .pill svg{width:18px;height:18px;opacity:.9}
     nav.top{max-width:var(--max); margin:0 auto; padding:0 20px}
     .sep{height:1px; background:var(--border); margin:26px 0}
-    .lead{color:var(--muted)}
+    .lead { color: var(--text); }  
     p{line-height:1.75; text-align:justify; text-justify:inter-word; hyphens:auto; margin:0}
     section{margin:30px 0}
     h2{margin:0 0 10px; font-size:1.25rem}
@@ -36,14 +36,34 @@
     .inline-nav a{color:#0366d6; text-decoration:none; margin:0 8px}
     .inline-nav a:hover{text-decoration:underline}
     .center{
-    max-width: 720px;     /* readable line length */
-    margin: 0 auto;       /* centers the block */
-    text-align: center;   /* centers the text */
+    max-width: 720px;    
+    margin: 0 auto;       
+    text-align: center;  
     }
     .right-corner{
-    position: fixed; top: 14px; right: 14px;
+    position: fixed; top: 14px; right: 32px;
     display: flex; gap: 10px; z-index: 50;
     }
+    .figure{
+    max-width: var(--max);
+    margin: 28px auto;
+    padding: 0 20px;          
+    }
+    .figure img{
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #f4f4f4;      
+    }
+    .figcap{
+    text-align: center;
+    color: var(--muted);
+    font-size: .95rem;
+    margin-top: 8px;
+    }
+
   </style>
 </head>
 <body>
@@ -95,8 +115,13 @@
         </p>
       </section>
 
+      <section id="overview-figure" class="figure">
+        <img src="images/placeholder-wide.jpg" alt="Agri-Cruiser overview">
+        <div class="figcap">Figure 1 Agri-Cruiser overview</div>
+      </section>
+
       <section id="introduction" class="center">
-        <h2>Brief Introduction</h2>
+        <h2>Introduction</h2>
         <p>
             The main contributions of this project are summarized as follows:
         </p>
@@ -120,6 +145,11 @@
             </li>
         </ul>
         <p>Insert picture and videos below</p>
+      </section>
+
+      <section id="Other figures" class="figure">
+        <img src="images/placeholder-wide.jpg" alt="">
+        <div class="figcap">Figure Others</div>
       </section>
 
       <section id="ack" class="center">
