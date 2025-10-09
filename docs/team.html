@@ -23,6 +23,10 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 32px 28px;
     }
+    .right-corner{
+    position: fixed; top: 14px; right: 14px;
+    display: flex; gap: 10px; z-index: 50;
+    }
     @media (max-width:900px){ .grid{ grid-template-columns: repeat(2, 1fr); } }
     @media (max-width:560px){ .grid{ grid-template-columns: 1fr; } }
 
@@ -41,7 +45,9 @@
 <body>
   <div class="wrap">
     <header>
-      <div class="topnav"><a href="index.html">← Back to project page</a></div>
+      <div class="corner">
+        <a class="pill" href="index.html" title="Back">Project Page</a>
+      </div>
       <h1>Team</h1>
     </header>
 
@@ -50,19 +56,19 @@
     <div class="grid">
       <!-- Card template: duplicate and edit -->
       <div class="card">
-        <img class="avatar" src="images/placeholder.jpg" alt="Professor Khalid Jawed (placeholder)" />
+        <img class="avatar" src="images/placeholder.jpg" alt="Member name (placeholder)" />
         <div class="name">Name</div>
         <div class="role">Role</div>
       </div>
 
       <div class="card">
-        <img class="avatar" src="images/placeholder.jpg" alt="Radha Lahoti (placeholder)" />
+        <img class="avatar" src="images/placeholder.jpg" alt="Member name (placeholder)" />
         <div class="name">Name</div>
         <div class="role">Role</div>
       </div>
 
       <div class="card">
-        <img class="avatar" src="images/placeholder.jpg" alt="Dr. Andrew Choi (placeholder)" />
+        <img class="avatar" src="images/placeholder.jpg" alt="Member name (placeholder)" />
         <div class="name">Name</div>
         <div class="role">Role</div>
       </div>
