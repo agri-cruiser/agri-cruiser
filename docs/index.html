@@ -27,7 +27,6 @@
     .pill svg{width:18px;height:18px;opacity:.9}
     nav.top{max-width:var(--max); margin:0 auto; padding:0 20px}
     .sep{height:1px; background:var(--border); margin:26px 0}
-    .center{max-width:760px; margin:0 auto}
     .lead{color:var(--muted)}
     p{line-height:1.75; text-align:justify; text-justify:inter-word; hyphens:auto; margin:0}
     section{margin:30px 0}
@@ -36,6 +35,15 @@
     .inline-nav{margin-top:10px; text-align:center}
     .inline-nav a{color:#0366d6; text-decoration:none; margin:0 8px}
     .inline-nav a:hover{text-decoration:underline}
+    .center{
+    max-width: 720px;     /* readable line length */
+    margin: 0 auto;       /* centers the block */
+    text-align: center;   /* centers the text */
+    }
+    .right-corner{
+    position: fixed; top: 14px; right: 14px;
+    display: flex; gap: 10px; z-index: 50;
+    }
   </style>
 </head>
 <body>
@@ -44,7 +52,7 @@
       <h1>Agri-Cruiser</h1>
       <div class="buttons">
         <!-- Paper -->
-        <a class="pill" href="paper.pdf" target="_blank" rel="noopener">
+        <a class="pill" href="https://arxiv.org/abs/2509.25056" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
           <span>Paper</span>
         </a>
@@ -54,14 +62,14 @@
           <span>Open-source code</span>
         </a>
         <!-- Demo -->
-        <a class="pill" href="demo.html" target="_blank" rel="noopener">
+        <a class="pill" href="https://www.youtube.com/@StructuresComp" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
           <span>Demo</span>
         </a>
       </div>
-      <div class="inline-nav">
-        <a href="team.html">Team</a>
-      </div>
+      <div class="right-corner">
+        <a class="pill" href="team.html" title="Team">Team</a>
+       </div>
     </header>
 
     <div class="sep"></div>
