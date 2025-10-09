@@ -1,0 +1,63 @@
+:root{
+  --max:880px; --text:#111; --muted:#444; --border:#e6e6e6;
+  --pill:#f4f4f4; --pill-hover:#e9e9e9;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  background:#fff; color:var(--text);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+
+/* Layout */
+.wrap{max-width:var(--max); margin:0 auto; padding:28px 20px 80px}
+header{display:grid; place-items:center; padding:80px 0 24px}
+h1{margin:0; font-size:clamp(2rem,4vw+.5rem,3rem); letter-spacing:.2px; text-align:center}
+.sep{height:1px; background:var(--border); margin:26px 0}
+
+/* Sections & text */
+section{margin:30px 0}
+h2{margin:0 0 10px; font-size:1.25rem; text-align:center}
+p{line-height:1.75; text-align:justify; text-justify:inter-word; hyphens:auto; margin:0}
+.center{max-width:720px; margin:0 auto; text-align:center}
+.lead{color:var(--text)}
+
+/* Buttons */
+.buttons{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap; justify-content:center}
+.pill{
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--pill); color:var(--text); border:1px solid var(--border);
+  padding:10px 14px; border-radius:999px; text-decoration:none; font-weight:600;
+  transition:background .12s ease, transform .06s ease, border-color .12s ease;
+}
+.pill:hover{background:var(--pill-hover); transform:translateY(-1px)}
+.pill svg{width:18px; height:18px; opacity:.9}
+
+/* Corner nav */
+.right-corner{position:fixed; top:14px; right:32px; display:flex; gap:10px; z-index:50}
+@media (max-width:700px){ .right-corner{ right:14px; } }
+
+/* Figures */
+.figure{max-width:var(--max); margin:28px auto; padding:0 20px}
+.figure img{display:block; width:100%; height:auto; border:1px solid var(--border); border-radius:8px; background:#f4f4f4}
+.figcap{text-align:center; color:var(--muted); font-size:.95rem; margin-top:8px}
+
+/* Team page */
+h2.school{margin:48px 0 22px; text-align:center; font-size:1.6rem}
+.grid{display:grid; grid-template-columns:repeat(3,1fr); gap:32px 28px}
+@media (max-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:560px){ .grid{grid-template-columns:1fr} }
+
+.card{text-align:center}
+.avatar{
+  width:180px; height:180px; border-radius:50%;
+  object-fit:cover; object-position:center;
+  display:block; margin:0 auto 12px; border:1px solid var(--border);
+  box-shadow:0 2px 10px rgba(0,0,0,.06); background:#f7f7f7;
+}
+.name{font-weight:700; margin:6px 0 0}
+.role{color:#667; font-size:.95rem; margin:2px 0 0}
+
+footer{margin-top:40px; font-size:.95rem; color:var(--muted); text-align:center}
