@@ -41,7 +41,14 @@ p{line-height:1.75; text-align:justify; text-justify:inter-word; hyphens:auto; m
 
 /* Figures */
 .figure{max-width:var(--max); margin:28px auto; padding:0 20px}
-.figure img{display:block; width:100%; height:auto; border:1px solid var(--border); border-radius:8px; background:#f4f4f4}
+.figure img{
+  display:block;
+  width:100%;
+  height:auto;
+  border:none;          
+  border-radius:0;              
+  box-shadow:none;              
+}
 .figcap{
   max-width: 720px;       /* match .center */
   margin: 8px auto 0;     /* center the block */
@@ -54,9 +61,14 @@ p{line-height:1.75; text-align:justify; text-justify:inter-word; hyphens:auto; m
 
 /* Team page */
 h2.school{margin:48px 0 22px; text-align:center; font-size:1.6rem}
-.grid{display:grid; grid-template-columns:repeat(3,1fr); gap:32px 28px}
-@media (max-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} }
-@media (max-width:560px){ .grid{grid-template-columns:1fr} }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px 28px;
+  justify-content: center;      /* <— centers the entire grid */
+}
+@media (max-width:900px){ .grid{ grid-template-columns: repeat(2,1fr); } }
+@media (max-width:560px){ .grid{ grid-template-columns: 1fr; } }
 
 .card{text-align:center}
 .avatar{
