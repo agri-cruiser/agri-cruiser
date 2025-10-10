@@ -42,7 +42,15 @@ p{line-height:1.75; text-align:justify; text-justify:inter-word; hyphens:auto; m
 /* Figures */
 .figure{max-width:var(--max); margin:28px auto; padding:0 20px}
 .figure img{display:block; width:100%; height:auto; border:1px solid var(--border); border-radius:8px; background:#f4f4f4}
-.figcap{text-align:center; color:var(--muted); font-size:.95rem; margin-top:8px}
+.figcap{
+  max-width: 720px;       /* match .center */
+  margin: 8px auto 0;     /* center the block */
+  text-align: justify;    /* same paragraph alignment */
+  text-justify: inter-word;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
 
 /* Team page */
 h2.school{margin:48px 0 22px; text-align:center; font-size:1.6rem}
