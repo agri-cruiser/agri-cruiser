@@ -61,3 +61,16 @@ h2.school{margin:48px 0 22px; text-align:center; font-size:1.6rem}
 .role{color:#667; font-size:.95rem; margin:2px 0 0}
 
 footer{margin-top:40px; font-size:.95rem; color:var(--muted); text-align:center}
+
+/* Menu bar (top-right) */
+.menu{
+  position: fixed; top:14px; right:32px;
+  display:flex; gap:10px; z-index:50;
+}
+@media (max-width:700px){ .menu{ right:14px; } }
+
+/* Highlight current page */
+.menu .active{
+  background: var(--pill-hover);
+  border-color: #dcdcdc;
+}
