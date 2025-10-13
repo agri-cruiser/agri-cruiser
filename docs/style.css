@@ -58,6 +58,45 @@ p{line-height:1.75; text-align:justify; text-justify:inter-word; hyphens:auto; m
   font-size: .95rem;
 }
 
+/* Intro: bullets + square figure side-by-side */
+.intro-grid{
+  display:grid;
+  grid-template-columns: 1fr 320px;   /* text | square image */
+  gap:24px;
+  align-items:start;
+  max-width: var(--max);
+  margin: 16px auto 0;
+}
+
+.intro-list{
+  text-align: justify;
+  text-justify: inter-word;
+  margin: 0;               /* tighten spacing */
+  padding-left: 22px;      /* bullet indent */
+}
+
+.intro-fig{ margin:0; }
+.intro-fig img{
+  width:100%;
+  aspect-ratio: 1 / 1;     /* force a square */
+  object-fit: cover;       /* fill nicely */
+  border:1px solid var(--border);
+  border-radius:8px;
+  display:block;
+  background:#f4f4f4;
+}
+.intro-fig figcaption{
+  text-align:center;
+  color:var(--muted);
+  font-size:.95rem;
+  margin-top:8px;
+}
+
+/* Stack on smaller screens */
+@media (max-width: 900px){
+  .intro-grid{ grid-template-columns: 1fr; }
+}
+
 
 /* Team page */
 h2.school{margin:48px 0 22px; text-align:center; font-size:1.6rem}
