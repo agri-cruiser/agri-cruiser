@@ -58,45 +58,47 @@ p{line-height:1.75; text-align:justify; text-justify:inter-word; hyphens:auto; m
   font-size: .95rem;
 }
 
-/* Intro: bullets + square figure side-by-side */
-.intro-grid{
-  display:grid;
-  grid-template-columns: 1fr 320px;   /* text | square image */
-  gap:24px;
-  align-items:start;
-  max-width: var(--max);
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px; /* left: bullets, right: smaller image */
+  align-items: start;
+  gap: 20px;
+  justify-content: center;
+  max-width: 850px;      /* keep total width smaller */
   margin: 16px auto 0;
 }
 
-.intro-list{
+.intro-list {
   text-align: justify;
   text-justify: inter-word;
-  margin: 0;               /* tighten spacing */
-  padding-left: 22px;      /* bullet indent */
+  margin: 0;
+  padding-left: 22px;
 }
 
-.intro-fig{ margin:0; }
-.intro-fig img{
-  width:100%;
-  aspect-ratio: 1 / 1;     /* force a square */
-  object-fit: cover;       /* fill nicely */
-  border:1px solid var(--border);
-  border-radius:8px;
-  display:block;
-  background:#f4f4f4;
-}
-.intro-fig figcaption{
-  text-align:center;
-  color:var(--muted);
-  font-size:.95rem;
-  margin-top:8px;
+.intro-fig img {
+  width: 100%;
+  max-width: 280px;      /* ensure image doesn't blow up */
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: block;
+  background: #f4f4f4;
 }
 
-/* Stack on smaller screens */
-@media (max-width: 900px){
-  .intro-grid{ grid-template-columns: 1fr; }
+.intro-fig figcaption {
+  text-align: center;
+  color: var(--muted);
+  font-size: .95rem;
+  margin-top: 8px;
 }
 
+/* Stack on small screens */
+@media (max-width: 900px) {
+  .intro-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
 
 /* Team page */
 h2.school{margin:48px 0 22px; text-align:center; font-size:1.6rem}
