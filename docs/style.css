@@ -135,3 +135,16 @@ footer{margin-top:40px; font-size:.95rem; color:var(--muted); text-align:center}
   background: var(--pill-hover);
   border-color: #dcdcdc;
 }
+
+.cta { display:flex; justify-content:center; margin:48px 0 0; }
+.cta a{
+  display:inline-block;
+  background:#000; color:#fff;
+  padding:16px 22px;
+  border-radius:14px;
+  font-weight:700; text-decoration:none;
+  box-shadow:0 6px 18px rgba(0,0,0,.18);
+  border:1px solid #000;
+  transition:transform .06s ease, background .12s ease;
+}
+.cta a:hover{ background:#222; transform:translateY(-1px); }
