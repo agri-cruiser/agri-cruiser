@@ -58,47 +58,43 @@ p{line-height:1.75; text-align:justify; text-justify:inter-word; hyphens:auto; m
   font-size: .95rem;
 }
 
-.intro-grid {
+/* Side-by-side: list | square figure */
+.intro-grid{
   display: grid;
-  grid-template-columns: 1fr 300px; /* left: bullets, right: smaller image */
-  align-items: start;
-  gap: 20px;
-  justify-content: center;
-  max-width: 850px;      /* keep total width smaller */
+  grid-template-columns: 1fr 340px;  /* left text | right image */
+  gap: 24px;
+  align-items: center;               /* center items vertically */
+  max-width: 850px;
   margin: 16px auto 0;
 }
 
-.intro-list {
+/* Make the list stay top-aligned */
+.intro-list{
+  align-self: start;                 /* keep bullets starting at top */
   text-align: justify;
   text-justify: inter-word;
   margin: 0;
   padding-left: 22px;
 }
 
-.intro-fig img {
+/* Square figure that can be centered vertically */
+.intro-fig{ align-self: center; }    /* vertical centering */
+.intro-fig img{
   width: 100%;
-  max-width: 280px;      /* ensure image doesn't blow up */
+  aspect-ratio: 1 / 1;               /* stay square */
   height: auto;
+  object-fit: cover;
   border: 1px solid var(--border);
-  border-radius: 8px;
-  display: block;
+  border-radius: 12px;
   background: #f4f4f4;
 }
 
-.intro-fig figcaption {
-  text-align: center;
-  color: var(--muted);
-  font-size: .95rem;
-  margin-top: 8px;
+/* Stack on small screens */
+@media (max-width: 900px){
+  .intro-grid{ grid-template-columns: 1fr; align-items: start; }
+  .intro-fig{ align-self: start; }
 }
 
-/* Stack on small screens */
-@media (max-width: 900px) {
-  .intro-grid {
-    grid-template-columns: 1fr;
-    justify-items: center;
-  }
-}
 
 /* Team page */
 h2.school{margin:48px 0 22px; text-align:center; font-size:1.6rem}
