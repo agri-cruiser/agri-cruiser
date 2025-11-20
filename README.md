@@ -14,6 +14,7 @@ AgriCruiser: An Open Source Agriculture Robot for Over-the-Row Navigation
 - [Troubleshooting](#troubleshooting)
    - [Manufacture and Assembly](#manufacture-and-assembly)
    - [Electronics and Hardware](#electronics-and-hardware)
+- [Acknowledgments](#acknowledgments)
 
 
 ## Overview of the AgriCruiser
@@ -209,3 +210,6 @@ With this setup, the ESP32 can:
    - Once connected, you should be able to see the current firmware version and the available firmware version. Update the firmware to the version listed above
 
 <img width="1424" height="972" alt="image" src="https://github.com/user-attachments/assets/5d35a1df-dfba-47a0-bfe8-b5f352b1e10c" />
+
+## Acknowledgments
+We gratefully acknowledge support from USDA grants 2024-67021-42528, 2022-67022-37021, and 2021-67022-34200.
